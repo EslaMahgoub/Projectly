@@ -1,0 +1,15 @@
+.card
+  .card-header
+    .fa.fa-user
+    = user.username
+  .card-body
+    Signed Up
+    = time_ago_in_words(user.created_at)  
+    ago
+
+  .card-footer 
+    - user.roles.each do |role|
+      .badge.bg-info
+        = role.name
+    %p
+    = link_to 'Edit roles', edit_user_path(user), class: 'btn btn-sm btn-warning'

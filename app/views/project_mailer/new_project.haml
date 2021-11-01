@@ -1,0 +1,21 @@
+
+%p
+%p
+Client
+= @project.company
+.row
+has created a new project:
+= @project
+.row
+Subject area:
+= @project.subject_area
+.row
+to start at:
+= @project.start_date
+.row
+and deliver at:
+= @project.delivery_date
+.row
+Regards, 
+.row
+= link_to 'The Projectly team', root_url

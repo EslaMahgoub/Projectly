@@ -1,0 +1,41 @@
+.p-3
+.row
+  .col-md-8
+    %b Project Name:
+    = project.name
+    .fas.fa-globe-europe.m-1
+    %b Source languages:
+    = project.source_language.code
+    .fas.fa-globe-europe.m-1
+    %b Target languages:
+    = project.target_languages.pluck(:code)
+  .col-md-4
+    .fas.fa-clock
+    %b Start Date:
+    = project.start_date
+    .fas.fa-clock
+    %b Delivery Date:
+    = project.delivery_date
+.row
+  %p
+  .col-md-8
+    .fas.fa-building
+    %b Company:
+    = project.company
+    %p
+    .fas.fa-book
+    %b Subject area:
+    = project.subject_area
+    %p
+  .col-md-4
+    -if project.reference_file.url
+      .fas.fa-file
+      %b Reference file:
+      = link_to 'Preview File', project.reference_file.url
+    %p
+    -if project.source_file.url
+      .fas.fa-file
+      %b Source file:
+      = link_to 'Preview File', project.source_file.url
+  %p
+

@@ -1,0 +1,24 @@
+
+.text-center 
+  %h1 Projects 
+.text-end
+  = link_to 'New Project', new_project_path, class: "btn btn-primary"
+%p
+
+- @projects.each do |project|
+  %p
+  .card
+    .card-header
+      .text-center 
+        .h4 
+          Project:
+          = link_to project.name, project_path(project)
+      
+    .card-body
+      = render 'project', project: project
+    
+    .card-footer 
+      = link_to 'Delete Project', project, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger'
+    
+%br
+!= pagy_bootstrap_nav(@pagy)

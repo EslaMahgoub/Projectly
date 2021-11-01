@@ -1,0 +1,31 @@
+- content_for :name do
+  Projectly
+  \|
+  = @project.name
+= link_to 'Projects', created_projects_path
+\/
+= link_to @project.name, project_path(@project)
+%p
+.text-center 
+  .h4 
+    Project name:
+    = @project.name
+.text-end
+  = link_to 'Edit Project', edit_project_path(@project), class: "btn btn-primary"
+%p
+.row
+  // for browser resize
+  .card
+    .card-header
+    .card-body
+      = render 'project', project: @project
+      .row
+        .col-md-6
+          %b Description:
+          = @project.description
+        .col-md-6
+          %b Instructions:
+          = @project.instructions
+
+%br
+= link_to 'Back to projects', created_projects_path, class: "btn btn-warning"

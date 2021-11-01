@@ -1,0 +1,26 @@
+.card
+  .card-header
+    .text-center 
+      .h4 
+        Welcome to Projectly:
+      
+  .card-body
+    .text-center 
+      %h1 Projects created so far:
+      %h2 
+        = @projects_count
+
+  - if current_user.nil?
+    .card-footer
+      .text-center 
+        = link_to "Create Account", new_user_registration_path, class: "btn btn-dark"
+        %p
+        %b Already a user? 
+        = link_to "Login instead", new_user_session_path, class: "btn btn-primary"
+
+
+
+
+
+
+

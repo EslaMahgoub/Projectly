@@ -1,0 +1,25 @@
+- content_for :title do
+  Projectly
+  \/
+  Project
+  = @project.name
+  \/
+  New Project
+= link_to 'Projects', projects_path
+\/
+New Project
+%p
+.card
+  .card-header
+    %h3 
+      .far.fa-check-square
+      New Project
+  .card-body
+    = render 'form'
+  .card-footer
+    = link_to 'Back to projects', created_projects_path, class: "btn btn-warning"
+
+
+
+
+

@@ -1,0 +1,37 @@
+-# frozen_string_literal: true
+= simple_form_for(@project) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+  - if @project.errors.any?
+    .container.text-danger
+      - @project.errors.full_messages.each do |msg|
+        %li= msg
+  
+  .form-inputs
+    .row
+      .col-md-6
+        = f.input :name
+        = f.input :start_date,as: :date, html5: true
+        = f.input :delivery_date,as: :date, html5: true
+        = f.association :company, as: :radio_buttons, :item_wrapper_class => 'horizontal'
+
+      .col-md-6
+        = f.association :source_language, as: :radio_buttons, :item_wrapper_class => 'horizontal'
+        = f.association :subject_area, as: :radio_buttons, :item_wrapper_class => 'horizontal'
+        %p
+        = f.association :target_languages, as: :check_boxes, :item_wrapper_class => 'horizontal'
+    %p
+    = f.input :description, as: :rich_text_area
+    %p
+    = f.input :instructions, as: :rich_text_area
+    %p
+    .row 
+      .col-md-6
+        = f.label :reference_file
+        = f.file_field :reference_file
+      .col-md-6
+        = f.label :source_file
+        = f.file_field :source_file
+    %p
+  .form-actions
+    = f.button :submit, class: "btn btn-success"
