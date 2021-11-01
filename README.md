@@ -1,24 +1,27 @@
-# README
+# Basic Readme file for Projectly App 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## How to test it?
+### 1- Pull the repoistory 
+### 2- Use docker compose to build the app
 
-Things you may want to cover:
+# What I have used so far in this app:
 
-* Ruby version
+#### HAML 
+#### BOOTSTRAP
+#### Font Awesome for Icons
+#### Devise for Authentication
+#### Simple_form for creating forms
+#### Rolify for creating roles
+#### Pundit for Authorization
+#### Action Mailer
+#### letter opener 
+#### Pagy for pagination
+#### Ransack for searching
+#### Friendly ID for creating slugs 
+#### Minitest for writing test cases
 
-* System dependencies
+# In Progress
 
-* Configuration
+## - Creating frontend project list view with ember.js
+## - Add Additional test cases to cover the rest of the app
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
