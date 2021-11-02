@@ -12,6 +12,7 @@ class User < ApplicationRecord
   after_create :assign_default_role
   #make sure that each user on the system has at least one roll
   validate :must_have_a_role, on: :update
+  has_many :projects
 
   def to_s
     username
@@ -21,7 +22,6 @@ class User < ApplicationRecord
     self.email.split(/@/).first
   end
 
-  has_many :projects
 
   def online?
     updated_at > 2.minutes.ago

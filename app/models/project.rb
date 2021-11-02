@@ -3,7 +3,7 @@ class Project < ApplicationRecord
   validates :start_date, presence: true
   validates :delivery_date, presence: true
   validate :delivery_date_must_be_in_future, :start_date_validation, on: :create, on: :update
-  validates :company, :description, :source_language, :subject_area, :source_file, :user, :target_languages,  presence: true
+  validates :company, :description, :source_language, :subject_area, :source_file, :user,  presence: true
   belongs_to :company
   belongs_to :source_language
   belongs_to :user, counter_cache: true
@@ -28,13 +28,10 @@ class Project < ApplicationRecord
   end
 
   def start_date_validation
-    if start_date.present? 
-      if start_date < Date.today
-        errors.add(:start_date, "must be in the future")
-      end
-      if start_date > delivery_date
-        errors.add(:start_date, " cannot be after delivery date")
-      end
+    if start_date.present? && start_date < Date.today
+      errors.add(:start_date, "must be in the future")
+    elsif start_date.present? && delivery_date.present?  && start_date > delivery_date
+      errors.add(:start_date, " cannot be after delivery date")
     end
   end
 
